@@ -1,9 +1,11 @@
+
+import './layer.less';
 import tpl from './layer.html';
 
 function layer (){
 	return {
-		name: 'layer';
-		tpl: tpl;
+		name: 'layer',
+		tpl: tpl
 	}
 }
 

@@ -7,6 +7,9 @@
 
 </head>
 <body>
+	
+	<div id='app'> </div>
+
 	<%= htmlWebpackPlugin.options.date %>
 	<% for (var key in htmlWebpackPlugin.files) { %>
 		<%= key %> : <%= JSON.stringify(htmlWebpackPlugin.files[key])%>
@@ -15,7 +18,7 @@
 	<% for (var key in htmlWebpackPlugin.options) { %>
 		<%= key %> : <%= JSON.stringify(htmlWebpackPlugin.options[key])%>
 	<% } %>
-
+	
 
 </body>
 </html>
