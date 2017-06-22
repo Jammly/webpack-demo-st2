@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>loader_content</title>
+	<title><%= htmlWebpackPlugin.options.title %></title>
 
 
 </head>
@@ -10,46 +10,16 @@
 	
 	<div id='app'> </div>
 
-	
-	
-		publicPath : ""
-	
-		chunks : {"main":{"size":296,"entry":"js/main.bundle.js","hash":"755042e275a527039282","css":[]}}
-	
-		js : ["js/main.bundle.js"]
-	
-		css : []
-	
-		manifest : 
-	
+	<!-- <img src="src/assets/bg.jpg"> -->
 
-	
-		template : "H:\\git\\webpack-demo-st2\\node_modules\\html-webpack-plugin\\lib\\loader.js!H:\\git\\webpack-demo-st2\\index.html"
-	
-		filename : "index.html"
-	
-		hash : false
-	
-		inject : "body"
-	
-		compile : true
-	
-		favicon : false
-	
-		minify : false
-	
-		cache : true
-	
-		showErrors : true
-	
-		chunks : "all"
-	
-		excludeChunks : []
-	
-		title : "loader_content"
-	
-		xhtml : false
-	
+	<%= htmlWebpackPlugin.options.date %>
+	<% for (var key in htmlWebpackPlugin.files) { %>
+		<%= key %> : <%= JSON.stringify(htmlWebpackPlugin.files[key])%>
+	<% } %>
+
+	<% for (var key in htmlWebpackPlugin.options) { %>
+		<%= key %> : <%= JSON.stringify(htmlWebpackPlugin.options[key])%>
+	<% } %>
 	
 
 <script type="text/javascript" src="js/main.bundle.js"></script></body>

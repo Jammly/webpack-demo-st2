@@ -14,16 +14,7 @@ module.exports = {
 		filename: 'js/[name].bundle.js',
 	},
 
-	plugins: [
-		new htmlWebpackPlugin({
-			filename: 'index.html',
-			template: 'index.html',
-			inject: 'body',
-			title: 'loader_content',
-		}),
-
-		new htmlWebpackInlineSourcePlugin(),
-	],
+	
 
 	module: {
 		// webpack1+
@@ -85,10 +76,61 @@ module.exports = {
 
 			{
 				test: /\.html$/,
-				loader: 'html-loader',
+				// loader: 'html-loader',
+				use: [
+					'html-loader',
+				]
+
+			},
+
+			{
+				test: /\.(tpl|ejs)$/,
+				use: [
+					'ejs-loader',
+				]
+			},
+
+			{
+				test: /\.(png|jpg|gif|svg)$/,
+
+				use: [
+
+				// {
+				// 	loader: 'file-loader',
+				// 	options: {
+				// 		name: "[name][hash].[ext]",
+				// 		outputPath:  'img/'
+				// 	}
+
+				// },
+
+					{
+						loader: 'url-loader',
+						options: {
+							limit: 4000,
+							name: "[name].[ext]",
+							outputPath:  'img/'
+						}
+					},
+					{
+						loader: 'image-webpack-loader'
+					}
+				]
+				
 			}
 		]
 	},
+
+	plugins: [
+		new htmlWebpackPlugin({
+			filename: 'index.html',
+			template: 'index.html',
+			inject: 'body',
+			title: 'loader_content',
+		}),
+
+		new htmlWebpackInlineSourcePlugin(),
+	],
 
 	// postcss: [
 	// 	require('autoprefixer')({
